@@ -83,7 +83,7 @@ cleanupOldDeployments()
   .then(createArtifactForDeployment)
   .then(deployLambdaFunction)
   .then((data) => {
-    logger.info(data);
+    logger.info(JSON.stringify(data));
   })
   .catch((err) => {
     logger.error(err);

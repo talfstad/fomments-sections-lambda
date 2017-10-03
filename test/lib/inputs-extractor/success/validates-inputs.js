@@ -4,7 +4,7 @@ describe('Fomments Sections Lambda', () => {
   describe('InputsExtractor', () => {
     describe('Succeeds at', () => {
       it('Validating inputs from request', (done) => {
-        InputsExtractor.validate({ requestPath: '/one/two' })
+        InputsExtractor.validate({ requestPath: '/one-two' })
           .then(() => {
             done();
           })

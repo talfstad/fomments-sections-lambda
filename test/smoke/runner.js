@@ -2,9 +2,11 @@ import _ from 'lodash';
 import { assert } from 'chai';
 import Runner from '../../lib/runner';
 
+const DEMO_USER_ID = 'PCdctsF5vvDgfEkcu';
+
 const event = {
   resource: '/{proxy+}',
-  path: '/skin-1-english',
+  path: `/${DEMO_USER_ID}-skin-1-english`,
   httpMethod: 'GET',
   headers: {
     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -71,7 +73,7 @@ describe('Fomments Sections Lambda', () => {
         Runner.run({
           event,
           callback: (err, { body }) => {
-            assert(!_.isEmpty(body.data), 'Simple execution did not return a section');
+            assert(!_.isEmpty(JSON.parse(body)), 'Simple execution did not return a section');
             done();
           },
         });
